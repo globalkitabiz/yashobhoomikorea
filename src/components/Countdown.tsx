@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { SITE_CONFIG } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n";
 
 interface TimeLeft {
   days: number;
@@ -11,12 +12,8 @@ interface TimeLeft {
 }
 
 export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const { t } = useLanguage();
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -25,7 +22,6 @@ export default function Countdown() {
       const target = new Date(SITE_CONFIG.eventDate + "T09:00:00+05:30").getTime();
       const now = new Date().getTime();
       const diff = target - now;
-
       if (diff > 0) {
         setTimeLeft({
           days: Math.floor(diff / (1000 * 60 * 60 * 24)),
@@ -43,10 +39,10 @@ export default function Countdown() {
   if (!mounted) return null;
 
   const blocks = [
-    { value: timeLeft.days, label: "DAYS" },
-    { value: timeLeft.hours, label: "HOURS" },
-    { value: timeLeft.minutes, label: "MIN" },
-    { value: timeLeft.seconds, label: "SEC" },
+    { value: timeLeft.days, label: t("DAYS", "일") },
+    { value: timeLeft.hours, label: t("HOURS", "시간") },
+    { value: timeLeft.minutes, label: t("MIN", "분") },
+    { value: timeLeft.seconds, label: t("SEC", "초") },
   ];
 
   return (
@@ -58,9 +54,7 @@ export default function Countdown() {
               {String(block.value).padStart(2, "0")}
             </span>
           </div>
-          <span className="text-white/60 text-[10px] sm:text-xs mt-1.5 tracking-wider font-medium">
-            {block.label}
-          </span>
+          <span className="text-white/60 text-[10px] sm:text-xs mt-1.5 tracking-wider font-medium">{block.label}</span>
         </div>
       ))}
     </div>

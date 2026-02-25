@@ -1,50 +1,57 @@
 "use client";
 
-import { SPEAKERS } from "@/lib/constants";
+import { useLanguage } from "@/lib/i18n";
 import { User } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Speakers() {
+  const { t } = useLanguage();
+
+  const speakers = [
+    { name: "TBA", title: t("Prime Minister", "총리"), org: t("Government of India", "인도 정부") },
+    { name: "TBA", title: t("Minister of Commerce", "상공부 장관"), org: t("Government of India", "인도 정부") },
+    { name: "TBA", title: t("Minister of Electronics & IT", "전자정보기술부 장관"), org: "MeitY, India" },
+    { name: t("Ryu Sung-taek", "류성택"), title: "CEO", org: "AI FUTURE Group" },
+    { name: "TBA", title: "CEO", org: "ZEE Entertainment" },
+    { name: "TBA", title: "CEO", org: t("Major Korean Corporation", "한국 주요 기업") },
+  ];
+
   return (
     <section id="speakers" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4">
         <ScrollReveal>
-          <h2 className="section-title">Speakers & Leaders</h2>
+          <h2 className="section-title">{t("Speakers & Leaders", "연사 & 리더")}</h2>
           <div className="section-divider" />
-          <p className="section-subtitle">
-            World-class leaders from government, industry, and academia
-          </p>
+          <p className="section-subtitle">{t("World-class leaders from government, industry, and academia", "정부, 산업, 학계의 세계적 리더")}</p>
         </ScrollReveal>
 
-        {/* 연사 그리드 */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
-          {SPEAKERS.map((speaker, idx) => (
+          {speakers.map((speaker, idx) => (
             <ScrollReveal key={idx} delay={idx * 80}>
               <div className="text-center group">
                 <div className="w-28 h-28 mx-auto mb-4 rounded-full bg-gradient-to-br from-[var(--navy)] to-[var(--navy-light)] flex items-center justify-center overflow-hidden border-3 border-[var(--gold)]/20 group-hover:border-[var(--gold)] transition-all duration-300 group-hover:scale-105">
                   <User className="w-12 h-12 text-white/40" />
                 </div>
                 <h4 className="text-sm font-bold text-[var(--navy)]">{speaker.name}</h4>
-                <p className="text-xs text-[var(--gold)] font-medium mt-0.5">
-                  {speaker.title}
-                </p>
+                <p className="text-xs text-[var(--gold)] font-medium mt-0.5">{speaker.title}</p>
                 <p className="text-xs text-[var(--gray-600)] mt-0.5">{speaker.org}</p>
               </div>
             </ScrollReveal>
           ))}
         </div>
 
-        {/* Leaders Speak 안내 */}
         <ScrollReveal delay={200}>
           <div className="bg-gradient-to-r from-[var(--navy)] to-[var(--navy-light)] rounded-2xl p-8 md:p-12 text-center text-white">
-            <h3 className="text-2xl font-bold mb-3">Leaders Speak</h3>
+            <h3 className="text-2xl font-bold mb-3">{t("Leaders Speak", "리더스 스피크")}</h3>
             <p className="text-white/70 max-w-2xl mx-auto mb-6">
-              VIP messages and keynote addresses from heads of state, ministers,
-              and global industry leaders will be announced soon.
+              {t(
+                "VIP messages and keynote addresses from heads of state, ministers, and global industry leaders will be announced soon.",
+                "국가 정상, 장관, 글로벌 산업 리더의 VIP 메시지와 기조 연설이 곧 발표됩니다."
+              )}
             </p>
             <div className="inline-flex items-center gap-2 bg-white/10 rounded-full px-6 py-3 text-sm">
               <div className="w-2 h-2 bg-[var(--gold)] rounded-full animate-pulse" />
-              Speaker Lineup Coming Soon
+              {t("Speaker Lineup Coming Soon", "연사 라인업 공개 예정")}
             </div>
           </div>
         </ScrollReveal>
