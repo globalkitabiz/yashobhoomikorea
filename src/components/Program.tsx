@@ -1,6 +1,7 @@
 "use client";
 
 import { SESSIONS } from "@/lib/constants";
+import ScrollReveal from "./ScrollReveal";
 
 const schedule = [
   {
@@ -42,96 +43,104 @@ export default function Program() {
   return (
     <section id="program" className="py-20 bg-[var(--gray-50)]">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="section-title">Program</h2>
-        <div className="section-divider" />
-        <p className="section-subtitle">
-          3 days of exhibitions, strategic forums, and high-level networking
-        </p>
+        <ScrollReveal>
+          <h2 className="section-title">Program</h2>
+          <div className="section-divider" />
+          <p className="section-subtitle">
+            3 days of exhibitions, strategic forums, and high-level networking
+          </p>
+        </ScrollReveal>
 
         {/* 일정 개요 */}
         <div id="schedule" className="grid md:grid-cols-3 gap-6 mb-20 scroll-mt-24">
           {schedule.map((day, idx) => (
-            <div key={day.day} className="card">
-              <div
-                className="p-4 text-white text-center"
-                style={{
-                  background: `linear-gradient(135deg, ${
-                    idx === 0 ? "#1B2A4A, #2A3F6A" : idx === 1 ? "#C8963E, #A67B2E" : "#0F1A30, #1B2A4A"
-                  })`,
-                }}
-              >
-                <div className="text-sm font-medium opacity-80">{day.day}</div>
-                <div className="text-lg font-bold">{day.date}</div>
-                <div className="text-xs mt-1 opacity-70">{day.title}</div>
+            <ScrollReveal key={day.day} delay={idx * 150}>
+              <div className="card h-full">
+                <div
+                  className="p-4 text-white text-center"
+                  style={{
+                    background: `linear-gradient(135deg, ${
+                      idx === 0 ? "#1B2A4A, #2A3F6A" : idx === 1 ? "#C8963E, #A67B2E" : "#0F1A30, #1B2A4A"
+                    })`,
+                  }}
+                >
+                  <div className="text-sm font-medium opacity-80">{day.day}</div>
+                  <div className="text-lg font-bold">{day.date}</div>
+                  <div className="text-xs mt-1 opacity-70">{day.title}</div>
+                </div>
+                <div className="p-5">
+                  {day.events.map((event) => (
+                    <div
+                      key={event.name}
+                      className="py-3 border-b border-gray-100 last:border-0"
+                    >
+                      <div className="text-xs text-[var(--gold)] font-semibold mb-1">
+                        {event.time}
+                      </div>
+                      <div className="text-sm font-semibold text-[var(--navy)]">
+                        {event.name}
+                      </div>
+                      <div className="text-xs text-[var(--gray-600)] mt-0.5">
+                        {event.desc}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="p-5">
-                {day.events.map((event) => (
-                  <div
-                    key={event.name}
-                    className="py-3 border-b border-gray-100 last:border-0"
-                  >
-                    <div className="text-xs text-[var(--gold)] font-semibold mb-1">
-                      {event.time}
-                    </div>
-                    <div className="text-sm font-semibold text-[var(--navy)]">
-                      {event.name}
-                    </div>
-                    <div className="text-xs text-[var(--gray-600)] mt-0.5">
-                      {event.desc}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 
         {/* 6대 전략 세션 */}
         <div id="sessions" className="scroll-mt-24">
-          <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">
-            6 Strategic Sessions
-          </h3>
-          <p className="text-center text-[var(--gray-600)] mb-10">
-            Key industries driving India-Korea economic cooperation
-          </p>
+          <ScrollReveal>
+            <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">
+              6 Strategic Sessions
+            </h3>
+            <p className="text-center text-[var(--gray-600)] mb-10">
+              Key industries driving India-Korea economic cooperation
+            </p>
+          </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SESSIONS.map((session) => (
-              <div key={session.id} className="card group cursor-pointer">
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div
-                      className="w-12 h-12 rounded-lg flex items-center justify-center text-xl"
-                      style={{ backgroundColor: session.color + "15", color: session.color }}
-                    >
-                      {session.icon}
-                    </div>
-                    <div>
-                      <div className="text-xs font-bold text-[var(--gray-600)]">
-                        SESSION {session.number}
-                      </div>
-                      <div className="text-lg font-bold text-[var(--navy)]">
-                        {session.title}
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-xs font-semibold text-[var(--gold)] mb-2">
-                    {session.subtitle}
-                  </div>
-                  <p className="text-sm text-[var(--gray-600)] leading-relaxed mb-4">
-                    {session.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {session.companies.map((company) => (
-                      <span
-                        key={company}
-                        className="text-[10px] px-2 py-1 bg-[var(--gray-100)] text-[var(--gray-600)] rounded-full"
+            {SESSIONS.map((session, idx) => (
+              <ScrollReveal key={session.id} delay={idx * 100}>
+                <div className="card group cursor-pointer h-full">
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div
+                        className="w-12 h-12 rounded-lg flex items-center justify-center text-xl shrink-0"
+                        style={{ backgroundColor: session.color + "15", color: session.color }}
                       >
-                        {company}
-                      </span>
-                    ))}
+                        {session.icon}
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-[var(--gray-600)]">
+                          SESSION {session.number}
+                        </div>
+                        <div className="text-lg font-bold text-[var(--navy)]">
+                          {session.title}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-xs font-semibold text-[var(--gold)] mb-2">
+                      {session.subtitle}
+                    </div>
+                    <p className="text-sm text-[var(--gray-600)] leading-relaxed mb-4">
+                      {session.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {session.companies.map((company) => (
+                        <span
+                          key={company}
+                          className="text-[10px] px-2 py-1 bg-[var(--gray-100)] text-[var(--gray-600)] rounded-full"
+                        >
+                          {company}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
