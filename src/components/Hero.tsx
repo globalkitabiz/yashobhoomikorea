@@ -20,8 +20,8 @@ export default function Hero() {
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--saffron)]/5 rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2 mb-8">
-          <span className="text-[var(--gold)] text-sm font-medium">AI FUTURE Group × ZEE TV × IICC</span>
+        <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-5 py-2 mb-8 mt-20 sm:mt-0">
+          <span className="text-[var(--gold)] text-xs sm:text-sm font-medium">AI FUTURE Group × ZEE TV × IICC</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">

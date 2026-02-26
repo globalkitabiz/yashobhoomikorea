@@ -53,8 +53,9 @@ export default function Header() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-[var(--navy)]/95 backdrop-blur-md shadow-lg py-2" : "bg-transparent py-4"}`}>
       <div className={`border-b border-white/10 transition-all duration-300 ${scrolled ? "h-0 overflow-hidden opacity-0" : "h-auto opacity-100 pb-2"}`}>
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center text-white/70 text-xs">
-          <span>{SITE_CONFIG.eventDateDisplay} | {SITE_CONFIG.venue}</span>
-          <div className="flex gap-1">
+          <span className="hidden sm:inline">{SITE_CONFIG.eventDateDisplay} | {SITE_CONFIG.venue}</span>
+          <span className="sm:hidden truncate mr-2">{SITE_CONFIG.eventDateDisplay}</span>
+          <div className="flex gap-1 shrink-0">
             <button type="button" onClick={() => setLang("en")} className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${lang === "en" ? "bg-[var(--gold)] text-white" : "text-white/60 hover:text-white"}`}>EN</button>
             <button type="button" onClick={() => setLang("ko")} className={`px-2.5 py-1 rounded text-xs font-medium transition-colors ${lang === "ko" ? "bg-[var(--gold)] text-white" : "text-white/60 hover:text-white"}`}>KR</button>
           </div>
@@ -63,9 +64,9 @@ export default function Header() {
 
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex flex-col">
-            <span className="text-white font-bold text-lg leading-tight tracking-tight">YASHOBHOOMI</span>
-            <span className="text-[var(--gold)] text-[10px] font-medium tracking-[0.2em] uppercase">{t("India-Korea Business Summit 2026", "인도-한국 비즈니스 서밋 2026")}</span>
+          <Link href="/" className="flex flex-col shrink-0">
+            <span className="text-white font-bold text-base sm:text-lg leading-tight tracking-tight">YASHOBHOOMI</span>
+            <span className="text-[var(--gold)] text-[9px] sm:text-[10px] font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase">{t("India-Korea Business Summit 2026", "인도-한국 비즈니스 서밋 2026")}</span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
