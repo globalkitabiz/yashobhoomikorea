@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n";
 
@@ -11,13 +11,20 @@ interface TimeLeft {
   seconds: number;
 }
 
+function useIsMounted() {
+  return useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
+}
+
 export default function Countdown() {
   const { t } = useLanguage();
+  const mounted = useIsMounted();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const calculate = () => {
       const target = new Date(SITE_CONFIG.eventDate + "T09:00:00+05:30").getTime();
       const now = new Date().getTime();

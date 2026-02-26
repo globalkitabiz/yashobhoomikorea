@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -62,10 +63,10 @@ export default function Header() {
 
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <a href="/" className="flex flex-col">
+          <Link href="/" className="flex flex-col">
             <span className="text-white font-bold text-lg leading-tight tracking-tight">YASHOBHOOMI</span>
             <span className="text-[var(--gold)] text-[10px] font-medium tracking-[0.2em] uppercase">{t("India-Korea Business Summit 2026", "인도-한국 비즈니스 서밋 2026")}</span>
-          </a>
+          </Link>
 
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
