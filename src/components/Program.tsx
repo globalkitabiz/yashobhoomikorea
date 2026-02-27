@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import ScrollReveal from "./ScrollReveal";
 
@@ -14,6 +15,7 @@ export default function Program() {
       subtitle: t("AI Transformation", "AI 전환"),
       icon: "🤖",
       color: "#6366F1",
+      image: "/images/sessions/aix.jpg",
       description: t(
         "India's exceptional IT talent pool meets Korea's AI innovation. Exploring Big Data market entry, Cloud infrastructure, Hindi LLM development, and youth-focused AI sports & entertainment applications with India's Youth & Sports Ministry.",
         "인도의 탁월한 IT 인재풀과 한국의 AI 혁신이 만납니다. 빅데이터 시장 진출, 클라우드 인프라, 힌디어 LLM 개발, 인도 청소년스포츠부 장관과 함께하는 청소년 스포츠·엔터 중심 AI 앱 기획을 논의합니다."
@@ -31,6 +33,7 @@ export default function Program() {
       subtitle: t("Petrochemical & Materials", "석유화학 & 소재"),
       icon: "🧪",
       color: "#8B5CF6",
+      image: "/images/sessions/chemical.jpg",
       description: t(
         "Amid global chemical industry downturn, leveraging India's Oil Minister connections and low raw material costs to compete against China in global markets. Strategic alliance for petrochemical supply chain optimization.",
         "글로벌 화학 업계 불황 속, 인도 석유부 장관과의 협력을 통해 낮은 원가를 확보하고 글로벌 시장에서 중국과 경쟁하는 전략적 파트너십을 구축합니다. 석유화학 공급망 최적화 방안을 논의합니다."
@@ -47,6 +50,7 @@ export default function Program() {
       subtitle: t("AI × Ayurveda", "AI × 아유르베다"),
       icon: "🧬",
       color: "#10B981",
+      image: "/images/sessions/bio.jpg",
       description: t(
         "Fusion of India's traditional Ayurveda medicine with Korea's cutting-edge AI diagnostics. Viscode immersive exhibition showcasing hologram, AR/VR technologies by ILM & Disney veteran team.",
         "인도 전통 아유르베다 의학과 한국의 최첨단 AI 진단 기술의 융합을 탐구합니다. ILM·디즈니 출신 팀이 이끄는 Viscode의 홀로그램·AR/VR 몰입형 전시를 통해 미래 의료 혁신을 선보입니다."
@@ -63,6 +67,7 @@ export default function Program() {
       subtitle: t("Next-Gen Power", "차세대 에너지"),
       icon: "⚡",
       color: "#F59E0B",
+      image: "/images/sessions/energy.jpg",
       description: t(
         "Transitioning from thermal power to hydrogen energy. All-solid-state battery technology and battery energy storage systems to meet India's rapidly growing energy demand.",
         "화력발전에서 수소 에너지로의 전환을 주도합니다. 인도의 급증하는 에너지 수요에 대응하기 위한 전고체 배터리 기술과 배터리 에너지 저장 시스템(BESS) 협력 방안을 논의합니다."
@@ -79,6 +84,7 @@ export default function Program() {
       subtitle: t("LNG Carriers & Maritime", "LNG 운반선 & 해양"),
       icon: "🚢",
       color: "#3B82F6",
+      image: "/images/sessions/shipbuilding.jpg",
       description: t(
         "India's strategic interest in Korean LNG carrier construction excellence. Building on the MAGA partnership signed in 2024, exploring expanded cooperation in shipbuilding and maritime logistics.",
         "한국의 LNG 운반선 건조 기술력에 대한 인도의 전략적 관심을 바탕으로, 2024년 체결된 MAGA 파트너십을 확대하고 조선·해양 물류 분야의 협력 강화를 모색합니다."
@@ -95,6 +101,7 @@ export default function Program() {
       subtitle: t("Construction & Development", "건설 & 개발"),
       icon: "🏗️",
       color: "#EF4444",
+      image: "/images/sessions/smartinfra.jpg",
       description: t(
         "Participating in India's ambitious economic development plans through smart infrastructure construction. Leveraging Korea's advanced construction technology for India's next-generation urban development projects.",
         "인도의 대규모 경제 개발 계획에 한국의 첨단 건설 기술로 참여합니다. 차세대 스마트시티, 교통 인프라, 산업단지 개발 등 인도 국가 인프라 프로젝트 협력 방안을 논의합니다."
@@ -111,6 +118,7 @@ export default function Program() {
       subtitle: t("Appropriate Medical Tech & Prosthetics", "적정의료기술 & 의족·휠체어"),
       icon: "🤝",
       color: "#EC4899",
+      image: "/images/sessions/rehab.jpg",
       description: t(
         "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. Establishing a joint Korea-India R&D center for 3D-printed custom prosthetics and wheelchairs, training disabled professionals in appropriate medical technology, and providing free prosthetics to amputees, refugees, and the impoverished worldwide.",
         "KOICA 한-인도 재활협력 프로그램 기반의 세션입니다. 자이푸르 풋 재단의 적정기술과 한국의 3D 프린팅·ICT 기술을 융합하여, 인도에 한·인도 공동 R&D 센터를 설립하고 맞춤형 의족·휠체어를 생산합니다. 전 세계 절단장애인, 난민, 최빈민층에게 무상 보급하는 글로벌 메디컬 서비스를 논의합니다."
@@ -202,15 +210,25 @@ export default function Program() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {sessions.map((session, idx) => (
               <ScrollReveal key={session.id} delay={idx * 100}>
-                <div className="card group cursor-pointer h-full">
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center text-xl shrink-0" style={{ backgroundColor: session.color + "15", color: session.color }}>{session.icon}</div>
+                <div className="card group cursor-pointer h-full overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={session.image}
+                      alt={session.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                      <div className="w-9 h-9 rounded-lg flex items-center justify-center text-base backdrop-blur-sm" style={{ backgroundColor: session.color + "30", color: "#fff" }}>{session.icon}</div>
                       <div>
-                        <div className="text-xs font-bold text-[var(--gray-600)]">{t("SESSION", "세션")} {session.number}</div>
-                        <div className="text-lg font-bold text-[var(--navy)]">{session.title}</div>
+                        <div className="text-[10px] font-bold text-white/70">{t("SESSION", "세션")} {session.number}</div>
+                        <div className="text-base font-bold text-white drop-shadow">{session.title}</div>
                       </div>
                     </div>
+                  </div>
+                  <div className="p-5">
                     <div className="text-xs font-semibold text-[var(--gold)] mb-2">{session.subtitle}</div>
                     <p className="text-sm text-[var(--gray-600)] leading-relaxed mb-4">{session.description}</p>
                     <div className="flex flex-wrap gap-1.5">
