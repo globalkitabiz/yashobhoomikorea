@@ -104,6 +104,23 @@ export default function Program() {
         t("Samsung C&T", "삼성물산"),
       ],
     },
+    {
+      id: "rehab",
+      number: "07",
+      title: t("Veterans & Rehabilitation", "보훈·재활"),
+      subtitle: t("Veterans Families & Disability Rehabilitation", "보훈가족 & 장애인 재활"),
+      icon: "🤝",
+      color: "#EC4899",
+      description: t(
+        "Korea-India cooperation in rehabilitation services for veterans' families and persons with disabilities. Building on KOICA's Jaipur Foundation rehabilitation partnership in India, exploring AI-powered assistive technology, prosthetics innovation, and community-based rehabilitation programs.",
+        "인도 보훈가족 및 장애인을 위한 한·인 재활 협력 세션입니다. KOICA 인도 자이푸르재단 재활협력사업을 기반으로, AI 보조기술, 의수·의족 혁신, 지역사회 기반 재활(CBR) 프로그램 등 양국 재활 분야의 전략적 협력 방안을 논의합니다."
+      ),
+      companies: [
+        "KOICA",
+        t("Jaipur Foundation", "자이푸르재단"),
+        t("Ministry of Patriots & Veterans", "국가보훈부"),
+      ],
+    },
   ];
 
   const schedule = [
@@ -136,7 +153,8 @@ export default function Program() {
       events: [
         { time: "09:00 - 10:30", name: t("Session 05: Shipbuilding", "세션 05: 조선"), desc: t("LNG Carriers & MAGA Partnership", "LNG 운반선 & MAGA 파트너십") },
         { time: "11:00 - 12:30", name: t("Session 06: Smart Infra", "세션 06: 스마트 인프라"), desc: t("Construction & Urban Development", "건설 & 도시 개발") },
-        { time: "14:00 - 16:00", name: t("MOU Signing Ceremony", "MOU 체결식"), desc: t("Partnership Agreements", "분야별 파트너십 협약 체결") },
+        { time: "13:30 - 15:00", name: t("Session 07: Veterans & Rehab", "세션 07: 보훈·재활"), desc: t("KOICA Jaipur Foundation & AI Assistive Tech", "KOICA 자이푸르재단 & AI 보조기술") },
+        { time: "15:30 - 17:00", name: t("MOU Signing Ceremony", "MOU 체결식"), desc: t("Partnership Agreements", "분야별 파트너십 협약 체결") },
         { time: "16:00 - 17:00", name: t("Closing Ceremony", "폐회식"), desc: t("Summary & Future Roadmap", "성과 요약 & 향후 로드맵 발표") },
       ],
     },
@@ -178,7 +196,7 @@ export default function Program() {
         {/* 6대 전략 세션 */}
         <div id="sessions" className="scroll-mt-24">
           <ScrollReveal>
-            <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">{t("6 Strategic Sessions", "6대 전략 세션")}</h3>
+            <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">{t("7 Strategic Sessions", "7대 전략 세션")}</h3>
             <p className="text-center text-[var(--gray-600)] mb-10">{t("Key industries driving India-Korea economic cooperation", "인도-한국 경제 협력을 이끄는 핵심 산업")}</p>
           </ScrollReveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -60,6 +60,7 @@ export default function Hero() {
           {[
             t("AIX", "AI 전환"), t("Chemical", "케미컬"), t("Bio-Healthcare", "바이오헬스케어"),
             t("Energy & BESS", "에너지 & BESS"), t("Shipbuilding", "조선"), t("Smart Infra", "스마트 인프라"),
+            t("Veterans & Rehab", "보훈·재활"),
           ].map((tag) => (
             <span key={tag} className="px-4 py-1.5 text-xs font-medium text-white/70 border border-white/15 rounded-full backdrop-blur-sm">{tag}</span>
           ))}
