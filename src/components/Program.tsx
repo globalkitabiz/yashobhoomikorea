@@ -108,16 +108,16 @@ export default function Program() {
       id: "rehab",
       number: "07",
       title: t("Veterans & Rehabilitation", "보훈·재활"),
-      subtitle: t("Veterans Families & Disability Rehabilitation", "보훈가족 & 장애인 재활"),
+      subtitle: t("Appropriate Medical Tech & Prosthetics", "적정의료기술 & 의족·휠체어"),
       icon: "🤝",
       color: "#EC4899",
       description: t(
-        "Korea-India cooperation in rehabilitation services for veterans' families and persons with disabilities. Building on KOICA's Jaipur Foundation rehabilitation partnership in India, exploring AI-powered assistive technology, prosthetics innovation, and community-based rehabilitation programs.",
-        "인도 보훈가족 및 장애인을 위한 한·인 재활 협력 세션입니다. KOICA 인도 자이푸르재단 재활협력사업을 기반으로, AI 보조기술, 의수·의족 혁신, 지역사회 기반 재활(CBR) 프로그램 등 양국 재활 분야의 전략적 협력 방안을 논의합니다."
+        "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. Establishing a joint Korea-India R&D center for 3D-printed custom prosthetics and wheelchairs, training disabled professionals in appropriate medical technology, and providing free prosthetics to amputees, refugees, and the impoverished worldwide.",
+        "KOICA 한-인도 재활협력 프로그램 기반의 세션입니다. 자이푸르 풋 재단의 적정기술과 한국의 3D 프린팅·ICT 기술을 융합하여, 인도에 한·인도 공동 R&D 센터를 설립하고 맞춤형 의족·휠체어를 생산합니다. 전 세계 절단장애인, 난민, 최빈민층에게 무상 보급하는 글로벌 메디컬 서비스를 논의합니다."
       ),
       companies: [
         "KOICA",
-        t("Jaipur Foundation", "자이푸르재단"),
+        t("Jaipur Foot Foundation", "자이푸르 풋 재단"),
         t("Ministry of Patriots & Veterans", "국가보훈부"),
       ],
     },
@@ -153,7 +153,7 @@ export default function Program() {
       events: [
         { time: "09:00 - 10:30", name: t("Session 05: Shipbuilding", "세션 05: 조선"), desc: t("LNG Carriers & MAGA Partnership", "LNG 운반선 & MAGA 파트너십") },
         { time: "11:00 - 12:30", name: t("Session 06: Smart Infra", "세션 06: 스마트 인프라"), desc: t("Construction & Urban Development", "건설 & 도시 개발") },
-        { time: "13:30 - 15:00", name: t("Session 07: Veterans & Rehab", "세션 07: 보훈·재활"), desc: t("KOICA Jaipur Foundation & AI Assistive Tech", "KOICA 자이푸르재단 & AI 보조기술") },
+        { time: "13:30 - 15:00", name: t("Session 07: Veterans & Rehab", "세션 07: 보훈·재활"), desc: t("KOICA × Jaipur Foot: 3D Prosthetics & Global Medical Service", "KOICA × 자이푸르 풋: 3D 의족·휠체어 & 글로벌 메디컬") },
         { time: "15:30 - 17:00", name: t("MOU Signing Ceremony", "MOU 체결식"), desc: t("Partnership Agreements", "분야별 파트너십 협약 체결") },
         { time: "16:00 - 17:00", name: t("Closing Ceremony", "폐회식"), desc: t("Summary & Future Roadmap", "성과 요약 & 향후 로드맵 발표") },
       ],
