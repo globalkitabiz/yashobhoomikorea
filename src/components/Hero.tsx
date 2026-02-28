@@ -1,21 +1,50 @@
 "use client";
 
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import { useLanguage } from "@/lib/i18n";
 import Countdown from "./Countdown";
 
+const heroImages = [
+  "/images/hero/modi-korea-ceo.jpg",
+  "/images/hero/modi-lee-summit.jpg",
+  "/images/hero/yashobhoomi.jpg",
+  "/images/hero/modi-korea-summit.jpg",
+];
+
 export default function Hero() {
   const { t } = useLanguage();
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32 sm:pt-28">
-      <div className="absolute inset-0 bg-gradient-to-br from-[var(--navy-dark)] via-[var(--navy)] to-[var(--navy-light)]" />
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C8963E' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+      {/* Background image slideshow */}
+      {heroImages.map((src, idx) => (
+        <div
+          key={src}
+          className="absolute inset-0 transition-opacity duration-1000"
+          style={{ opacity: idx === currentImage ? 1 : 0 }}
+        >
+          <Image
+            src={src}
+            alt=""
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority={idx === 0}
+          />
+        </div>
+      ))}
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[var(--navy-dark)]/85 via-[var(--navy)]/80 to-[var(--navy-light)]/85" />
       <div className="absolute top-20 right-10 w-64 h-64 bg-[var(--gold)]/5 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--saffron)]/5 rounded-full blur-3xl" />
 
