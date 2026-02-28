@@ -21,16 +21,24 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 text-center">
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-5 py-2 mb-8">
-          <span className="text-[var(--gold)] text-xs sm:text-sm font-medium">AI FUTURE Group × ZEE TV × IICC</span>
+          <span className="text-[var(--gold)] text-xs sm:text-sm font-medium">IICC × ZEE TV × AI FUTURE Group</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4">
-          <span className="block">{t("India-Korea", "인도-한국")}</span>
-          <span className="block text-[var(--gold)]">{t("Yashobhoomi", "야쇼부미")}</span>
+          <span className="block text-2xl sm:text-3xl md:text-4xl font-light text-white/70 mb-2">2026</span>
+          <span className="block text-[var(--gold)]">{t("K20 India-Korea", "K20 인도-한국")}</span>
+          <span className="block">{t("Yashobhoomi", "야쇼부미")}</span>
           <span className="block text-3xl sm:text-4xl md:text-5xl font-light mt-2">
-            {t("Global Business Summit", "글로벌 비즈니스 서밋")}
+            {t("Business Summit", "비즈니스 서밋")}
           </span>
         </h1>
+
+        <p className="text-white/60 text-sm sm:text-base max-w-2xl mx-auto mt-4 mb-2 italic">
+          {t(SITE_CONFIG.theme, "혁신의 이전: 지속 가능한 한-인도 경제 회랑 구축")}
+        </p>
+        <p className="text-[var(--gold)]/80 text-xs sm:text-sm font-semibold mb-6">
+          {t(SITE_CONFIG.subTheme, "AIX: 공동 번영을 위한 새로운 프론티어")}
+        </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 mt-6 mb-10">
           <div className="flex items-center gap-2 text-white/80">
@@ -58,9 +66,9 @@ export default function Hero() {
 
         <div className="flex flex-wrap justify-center gap-3 mt-12">
           {[
-            t("AIX", "AI 전환"), t("Chemical", "케미컬"), t("Bio-Healthcare", "바이오헬스케어"),
-            t("Energy & BESS", "에너지 & BESS"), t("Shipbuilding", "조선"), t("Smart Infra", "스마트 인프라"),
-            t("Veterans & Rehab", "보훈·재활"),
+            t("AI+Semiconductor", "AI+반도체"), t("Defense", "방산"), t("Mobility", "모빌리티"),
+            t("Energy", "에너지"), t("Chemical", "케미컬"), t("Entertainment", "엔터테인먼트"),
+            t("Veterans & Rehabilitation", "참전용사 재활"),
           ].map((tag) => (
             <span key={tag} className="px-4 py-1.5 text-xs font-medium text-white/70 border border-white/15 rounded-full backdrop-blur-sm">{tag}</span>
           ))}

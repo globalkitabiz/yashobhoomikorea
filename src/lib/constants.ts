@@ -1,14 +1,16 @@
 // 사이트 기본 정보
 export const SITE_CONFIG = {
-  name: "2026 India-Korea Yashobhoomi Global Business Summit",
-  shortName: "Yashobhoomi GBS 2026",
+  name: "K20 India-Korea Business Summit Yashobhoomi 2026",
+  shortName: "YKBS 2026",
   domain: "yashobhoomikoreabusinesssummit.org",
-  eventDate: "2026-04-27", // 4월 마지막 주 월요일 (확정 시 변경)
-  eventEndDate: "2026-04-29",
-  eventDateDisplay: "April 27-29, 2026",
+  eventDate: "2026-04-21",
+  eventEndDate: "2026-04-23",
+  eventDateDisplay: "April 21-23, 2026",
   venue: "Yashobhoomi (IICC), New Delhi, India",
+  theme: "Transferring Innovations: Building a Sustainable Korea-India Economic Corridor",
+  subTheme: "AIX: The New Frontier for Shared Prosperity",
   description:
-    "The premier India-Korea business summit connecting leaders across AI, Semiconductor, Bio-Healthcare, Energy, Fleet & Defense sectors.",
+    "The premier K20 India-Korea business summit connecting 5,000+ leaders across AI+Semiconductor, Defense, Mobility, Energy, Chemical, Entertainment & Veterans Rehabilitation sectors.",
 };
 
 // 네비게이션 메뉴
@@ -69,114 +71,119 @@ export const NAV_ITEMS = [
   },
 ];
 
-// 6대 전략 세션
+// 7대 전략 세션 (PDF 운영계획 기준)
 export const SESSIONS = [
   {
-    id: "aix",
+    id: "ai-semiconductor",
     number: "01",
-    title: "AIX",
-    subtitle: "AI Transformation",
-    titleKo: "AI 전환",
+    title: "AI + Semiconductor",
+    subtitle: "AI Chip & Fabrication",
+    titleKo: "AI+반도체",
     icon: "🤖",
     color: "#6366F1",
     description:
-      "India's exceptional IT talent pool meets Korea's AI innovation. Exploring Big Data, Cloud, Hindi LLM, and youth-focused AI applications.",
-    companies: ["LG U+", "Naver", "Samsung SDS"],
+      "Combining Korea's semiconductor manufacturing capabilities with India's software/design talent to build a next-generation AI semiconductor ecosystem.",
+    companies: ["Samsung Electronics", "SK Hynix", "Naver"],
   },
   {
-    id: "semiconductor",
+    id: "defense",
     number: "02",
-    title: "Semiconductor",
-    subtitle: "Chips & Fabrication",
-    titleKo: "반도체",
-    icon: "💎",
+    title: "Defense",
+    subtitle: "K-Defense & MRO",
+    titleKo: "방산",
+    icon: "🛡️",
     color: "#8B5CF6",
     description:
-      "Strategic partnership in semiconductor manufacturing, packaging, and supply chain between India's growing market and Korea's technology leadership.",
-    companies: ["Samsung Electronics", "SK Hynix"],
+      "Digital transformation of K-Defense MRO centers in India. AI-powered unmanned combat systems (MUM-T) and military AI governance cooperation.",
+    companies: ["Hanwha Aerospace", "LIG Nex1", "HD Hyundai"],
   },
   {
-    id: "bio",
+    id: "mobility",
     number: "03",
-    title: "Bio-Healthcare",
-    subtitle: "AI × Ayurveda",
-    titleKo: "바이오헬스",
-    icon: "🧬",
+    title: "Mobility",
+    subtitle: "AI Green Mobility",
+    titleKo: "모빌리티",
+    icon: "🚗",
     color: "#10B981",
     description:
-      "Fusion of traditional Ayurveda medicine with cutting-edge AI diagnostics. Viscode immersive exhibition showcasing hologram and AR/VR technologies.",
-    companies: ["Samsung Biologics", "Celltrion"],
+      "Hydrogen mobility demonstration zones, autonomous electric vehicle architectures, and EV infrastructure integrated with smart grids for India's carbon neutrality goals.",
+    companies: ["Hyundai Motor", "Kia", "SK ecoplant"],
   },
   {
     id: "energy",
     number: "04",
-    title: "Energy & BESS",
-    subtitle: "Next-Gen Power",
+    title: "Energy",
+    subtitle: "H2 & BESS",
     titleKo: "에너지",
     icon: "⚡",
     color: "#F59E0B",
     description:
-      "From thermal power to hydrogen energy. All-solid-state battery technology and battery energy storage systems for India's growing demand.",
-    companies: ["Doosan Enerbility", "Samsung SDI"],
+      "Hydrogen infrastructure, all-solid-state battery technology, and energy storage systems. Carbon capture and high-efficiency energy solutions for India's growing demand.",
+    companies: ["Doosan Enerbility", "Samsung SDI", "POSCO"],
   },
   {
-    id: "fleet",
+    id: "chemical",
     number: "05",
-    title: "Fleet & Logistics",
-    subtitle: "Shipbuilding & LNG",
-    titleKo: "선박/해양",
-    icon: "🚢",
+    title: "Chemical",
+    subtitle: "Petrochemical & Materials",
+    titleKo: "케미컬",
+    icon: "🧪",
     color: "#3B82F6",
     description:
-      "LNG carrier construction and maritime logistics. India's strategic interest in Korean shipbuilding excellence and MAGA partnership.",
-    companies: ["HD Hyundai", "Samsung Heavy Industries"],
+      "Past, present, and future of the chemical industry. High-purity chemicals for semiconductor processes, next-gen battery materials, and eco-friendly lightweight engineering plastics.",
+    companies: ["LG Chem", "Lotte Chemical", "Hanwha Solutions"],
   },
   {
-    id: "defense",
+    id: "entertainment",
     number: "06",
-    title: "Defense",
-    subtitle: "Security & Aerospace",
-    titleKo: "국방/안보",
-    icon: "🛡️",
+    title: "Entertainment",
+    subtitle: "K-Culture & OTT",
+    titleKo: "엔터테인먼트",
+    icon: "🎬",
     color: "#EF4444",
     description:
-      "Defense technology cooperation and smart infrastructure development aligned with India's economic development plans.",
-    companies: ["Hanwha Aerospace", "LIG Nex1"],
+      "ZEE TV 'K-Culture & Tech' broadcast channel launch and global OTT collaboration. Content co-production models and digital IP business between Korea and India.",
+    companies: ["ZEE TV", "CJ ENM", "HYBE"],
+  },
+  {
+    id: "veterans-rehabilitation",
+    number: "07",
+    title: "AX for War Veterans & the Physically Challenged",
+    subtitle: "Appropriate Medical Tech & Prosthetics",
+    titleKo: "참전용사 & 장애인 재활",
+    icon: "🦾",
+    color: "#7C3AED",
+    description:
+      "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. 3D-printed custom prosthetics and wheelchairs, training disabled professionals, and providing free prosthetics worldwide.",
+    companies: ["KOICA", "Jaipur Foot Foundation", "Ministry of Patriots & Veterans"],
   },
 ];
 
-// 주요 연사 (플레이스홀더)
+// 주요 연사
 export const SPEAKERS = [
   {
-    name: "TBA",
+    name: "Narendra Modi",
     title: "Prime Minister",
     org: "Government of India",
     category: "government",
     image: "/images/speaker-placeholder.svg",
   },
   {
-    name: "TBA",
-    title: "Minister of Commerce",
+    name: "Piyush Goyal",
+    title: "Minister of Commerce & Industry",
     org: "Government of India",
     category: "government",
     image: "/images/speaker-placeholder.svg",
   },
   {
-    name: "TBA",
+    name: "Ashwini Vaishnaw",
     title: "Minister of Electronics & IT",
     org: "MeitY, India",
     category: "government",
     image: "/images/speaker-placeholder.svg",
   },
   {
-    name: "Ryu Sung-taek",
-    title: "CEO",
-    org: "AI FUTURE Group",
-    category: "organizer",
-    image: "/images/speaker-placeholder.svg",
-  },
-  {
-    name: "TBA",
+    name: "Punit Goenka",
     title: "CEO",
     org: "ZEE Entertainment",
     category: "organizer",
@@ -184,56 +191,86 @@ export const SPEAKERS = [
   },
   {
     name: "TBA",
-    title: "CEO",
-    org: "Major Korean Corporation",
+    title: "To Be Announced",
+    org: "Coming Soon",
     category: "corporate",
     image: "/images/speaker-placeholder.svg",
   },
 ];
 
-// 등록 유형 및 참가비
-export const REGISTRATION_FEES = [
+// 참여 등급 및 혜택 구조
+export const PARTICIPATION_TIERS = [
   {
-    type: "General Participant",
-    typeKo: "일반 참가자",
-    early: "USD 500",
-    regular: "USD 700",
-    onsite: "USD 900",
+    tier: "Session Chair",
+    tierKo: "세션 의장",
+    price: "$1,000,000",
+    color: "from-amber-500 to-yellow-600",
+    benefits: [
+      "Head table seating with vice-minister-level officials from India & Korea",
+      "Agenda-setting authority for the relevant industry session",
+      "Exclusive G2B/B2G closed-door meeting organization",
+      "Priority #1 policy recommendation in the official summit white paper",
+    ],
+    benefitsKo: [
+      "인도·한국 소속 장차관급 관료와 헤드 테이블 배정",
+      "해당 산업 세션 의제 설정권",
+      "독점 G2B/B2G 비공개 회의 주관",
+      "써밋 공식 백서 내 정책 제언 1순위 반영",
+    ],
   },
   {
-    type: "Corporate Delegate",
-    typeKo: "기업 대표단",
-    early: "USD 800",
-    regular: "USD 1,000",
-    onsite: "USD 1,200",
+    tier: "Strategic Follower",
+    tierKo: "A등급",
+    price: "$500,000",
+    color: "from-purple-500 to-violet-600",
+    benefits: [
+      "Full-time access to vice-minister networking lounge",
+      "Key panelist participation in each session",
+      "Priority 1:1 investment matching with Indian conglomerate CEOs",
+      "Opportunity to submit regulatory improvement proposals",
+    ],
+    benefitsKo: [
+      "장차관 네트워킹 라운지 상시 출입권",
+      "세션별 핵심 토론자 참여",
+      "인도 대기업 CEO와의 1:1 투자 매칭 우선권",
+      "규제 개선 건의안 제출 기회 제공",
+    ],
   },
   {
-    type: "VIP / Speaker",
-    typeKo: "VIP / 연사",
-    early: "Invited",
-    regular: "Invited",
-    onsite: "Invited",
+    tier: "Business Partner",
+    tierKo: "B등급",
+    price: "$300,000",
+    color: "from-[var(--gold)] to-[var(--gold-dark)]",
+    benefits: [
+      "Official B2B matching program participation",
+      "Technical seminar with director-general-level officials from both nations",
+      "VIP booth allocation at IICC exhibition hall",
+      "Corporate IR video on summit main screen at all times",
+    ],
+    benefitsKo: [
+      "공식 B2B 매칭 프로그램 참여",
+      "양국 주요 실무 국장급과의 기술 세미나 참석",
+      "IICC 전시장 내 VIP 부스 배정",
+      "기업 IR 영상 써밋 메인 스크린 상시 노출",
+    ],
   },
   {
-    type: "Government / Public",
-    typeKo: "정부 / 공공기관",
-    early: "USD 300",
-    regular: "USD 500",
-    onsite: "USD 600",
-  },
-  {
-    type: "Student / Academic",
-    typeKo: "학생 / 학술",
-    early: "USD 200",
-    regular: "USD 300",
-    onsite: "USD 400",
-  },
-  {
-    type: "Exhibition Booth",
-    typeKo: "전시 부스",
-    early: "USD 3,000",
-    regular: "USD 4,000",
-    onsite: "USD 5,000",
+    tier: "Growth Member",
+    tierKo: "C등급",
+    price: "$100,000",
+    color: "from-gray-400 to-gray-500",
+    benefits: [
+      "Session attendance and networking event participation",
+      "India local industry cluster visit opportunity",
+      "Listed in summit participating companies directory",
+      "Consulting support for India government PLI scheme application",
+    ],
+    benefitsKo: [
+      "세션 참관 및 네트워킹 이벤트 참여",
+      "인도 현지 산업 클러스터 방문 기회",
+      "써밋 참여 기업 명부 등재",
+      "향후 인도 정부 지원 PLI 신청 시 컨설팅 지원",
+    ],
   },
 ];
 
@@ -241,7 +278,7 @@ export const REGISTRATION_FEES = [
 export const PARTNERS = {
   organizers: [
     { name: "AI FUTURE Group", logo: "/images/logo-aifuture.svg" },
-    { name: "ZEE Entertainment", logo: "/images/logo-zee.svg" },
+    { name: "ZEE TV Group", logo: "/images/logo-zee.svg" },
     { name: "IICC Yashobhoomi", logo: "/images/logo-iicc.svg" },
   ],
   sponsors: [
@@ -249,7 +286,8 @@ export const PARTNERS = {
     { name: "Sponsor 2", logo: "/images/partner-placeholder.svg" },
   ],
   partners: [
-    { name: "Ministry of External Affairs, Korea", logo: "/images/partner-placeholder.svg" },
+    { name: "FICCI", logo: "/images/partner-placeholder.svg" },
+    { name: "KCCI", logo: "/images/partner-placeholder.svg" },
     { name: "MeitY, India", logo: "/images/partner-placeholder.svg" },
   ],
 };

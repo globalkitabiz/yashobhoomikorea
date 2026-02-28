@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import ScrollReveal from "./ScrollReveal";
 
@@ -9,34 +8,82 @@ export default function Program() {
 
   const sessions = [
     {
-      id: "aix",
+      id: "ai-semiconductor",
       number: "01",
-      title: "AIX",
-      subtitle: t("AI Transformation", "AI 전환"),
+      title: t("AI + Semiconductor", "AI+반도체"),
+      subtitle: t("AI Chip & Fabrication", "AI 칩 & 제조"),
       icon: "🤖",
       color: "#6366F1",
-      image: "/images/sessions/aix.jpg",
       description: t(
-        "India's exceptional IT talent pool meets Korea's AI innovation. Exploring Big Data market entry, Cloud infrastructure, Hindi LLM development, and youth-focused AI sports & entertainment applications with India's Youth & Sports Ministry.",
-        "인도의 탁월한 IT 인재풀과 한국의 AI 혁신이 만납니다. 빅데이터 시장 진출, 클라우드 인프라, 힌디어 LLM 개발, 인도 청소년스포츠부 장관과 함께하는 청소년 스포츠·엔터 중심 AI 앱 기획을 논의합니다."
+        "Combining Korea's semiconductor manufacturing capabilities with India's software/design talent. Next-gen AI semiconductor ecosystem, edge AI architectures for autonomous vehicles, and HBM device research.",
+        "한국의 반도체 제조 역량과 인도의 소프트웨어/설계 인력을 결합한 차세대 AI 반도체 생태계 구축. 자율주행 엣지 AI 아키텍처, HBM 소자 연구를 논의합니다."
       ),
       companies: [
-        t("LG U+", "LG U+"),
-        t("Naver", "네이버"),
-        "Samsung SDS",
+        t("Samsung Electronics", "삼성전자"),
+        t("SK Hynix", "SK하이닉스"),
+        "Naver",
+      ],
+    },
+    {
+      id: "defense",
+      number: "02",
+      title: t("Defense", "방산"),
+      subtitle: t("K-Defense & MRO", "K-방산 & MRO"),
+      icon: "🛡️",
+      color: "#8B5CF6",
+      description: t(
+        "Digital transformation of K-Defense MRO centers in India. Algorithmic ethics in military AI, real-time big data analytics for ISR, and AI-powered unmanned combat systems (MUM-T) cooperation.",
+        "인도 현지 K-방산 MRO 센터의 디지털 전환. 군사 AI 알고리즘 윤리, ISR용 실시간 빅데이터 분석, AI 기반 유무인 복합 전투 체계(MUM-T) 협력을 논의합니다."
+      ),
+      companies: [
+        t("Hanwha Aerospace", "한화에어로스페이스"),
+        "LIG Nex1",
+      ],
+    },
+    {
+      id: "mobility",
+      number: "03",
+      title: t("Mobility", "모빌리티"),
+      subtitle: t("AI Green Mobility", "AI 그린 모빌리티"),
+      icon: "🚗",
+      color: "#10B981",
+      description: t(
+        "Hydrogen mobility demonstration zones at Yashobhoomi (IICC). Autonomous electric vehicle architectures, EV infrastructure integrated with smart grids, and lightweight materials science innovations.",
+        "야쇼부미(IICC) 내 한-인도 수소 모빌리티 실증 구역 운영. 자율주행 전기차 아키텍처, 스마트 그리드 통합 EV 인프라, 경량화 재료과학 혁신을 논의합니다."
+      ),
+      companies: [
+        t("Hyundai Motor", "현대자동차"),
+        t("Kia", "기아"),
+        "SK ecoplant",
+      ],
+    },
+    {
+      id: "energy",
+      number: "04",
+      title: t("Energy", "에너지"),
+      subtitle: t("H2 & BESS", "수소 & BESS"),
+      icon: "⚡",
+      color: "#F59E0B",
+      description: t(
+        "India's carbon neutrality through Korea's hydrogen (H2) infrastructure and EV value chain. All-solid-state battery technology, carbon capture (CCUS), and high-efficiency energy storage systems.",
+        "한국의 수소(H2) 인프라 및 전기차 밸류체인을 통한 인도의 탄소중립 목표 달성. 전고체 배터리 기술, 탄소 포집(CCUS), 고효율 에너지 저장 시스템을 논의합니다."
+      ),
+      companies: [
+        t("Doosan Enerbility", "두산에너빌리티"),
+        "Samsung SDI",
+        "POSCO",
       ],
     },
     {
       id: "chemical",
-      number: "02",
+      number: "05",
       title: t("Chemical", "케미컬"),
       subtitle: t("Petrochemical & Materials", "석유화학 & 소재"),
       icon: "🧪",
-      color: "#8B5CF6",
-      image: "/images/sessions/chemical.jpg",
+      color: "#3B82F6",
       description: t(
-        "Amid global chemical industry downturn, leveraging India's Oil Minister connections and low raw material costs to compete against China in global markets. Strategic alliance for petrochemical supply chain optimization.",
-        "글로벌 화학 업계 불황 속, 인도 석유부 장관과의 협력을 통해 낮은 원가를 확보하고 글로벌 시장에서 중국과 경쟁하는 전략적 파트너십을 구축합니다. 석유화학 공급망 최적화 방안을 논의합니다."
+        "Past, present, and future of the chemical industry. High-purity chemicals for semiconductor processes, next-gen battery electrolytes and separators, eco-friendly lightweight plastics, and India REACH compliance.",
+        "케미컬 산업의 과거, 현재 그리고 미래. 반도체 공정용 고순도 케미컬, 차세대 전지용 전해질·분리막, 친환경 경량 플라스틱, 인도 REACH 대응을 논의합니다."
       ),
       companies: [
         t("LG Chem", "LG화학"),
@@ -44,88 +91,36 @@ export default function Program() {
       ],
     },
     {
-      id: "bio",
-      number: "03",
-      title: t("Bio-Healthcare", "바이오헬스케어"),
-      subtitle: t("AI × Ayurveda", "AI × 아유르베다"),
-      icon: "🧬",
-      color: "#10B981",
-      image: "/images/sessions/bio.jpg",
-      description: t(
-        "Fusion of India's traditional Ayurveda medicine with Korea's cutting-edge AI diagnostics. Viscode immersive exhibition showcasing hologram, AR/VR technologies by ILM & Disney veteran team.",
-        "인도 전통 아유르베다 의학과 한국의 최첨단 AI 진단 기술의 융합을 탐구합니다. ILM·디즈니 출신 팀이 이끄는 Viscode의 홀로그램·AR/VR 몰입형 전시를 통해 미래 의료 혁신을 선보입니다."
-      ),
-      companies: [
-        t("Samsung Biologics", "삼성바이오로직스"),
-        t("Celltrion", "셀트리온"),
-      ],
-    },
-    {
-      id: "energy",
-      number: "04",
-      title: t("Energy & BESS", "에너지 & BESS"),
-      subtitle: t("Next-Gen Power", "차세대 에너지"),
-      icon: "⚡",
-      color: "#F59E0B",
-      image: "/images/sessions/energy.jpg",
-      description: t(
-        "Transitioning from thermal power to hydrogen energy. All-solid-state battery technology and battery energy storage systems to meet India's rapidly growing energy demand.",
-        "화력발전에서 수소 에너지로의 전환을 주도합니다. 인도의 급증하는 에너지 수요에 대응하기 위한 전고체 배터리 기술과 배터리 에너지 저장 시스템(BESS) 협력 방안을 논의합니다."
-      ),
-      companies: [
-        t("Doosan Enerbility", "두산에너빌리티"),
-        "Samsung SDI",
-      ],
-    },
-    {
-      id: "shipbuilding",
-      number: "05",
-      title: t("Shipbuilding", "조선"),
-      subtitle: t("LNG Carriers & Maritime", "LNG 운반선 & 해양"),
-      icon: "🚢",
-      color: "#3B82F6",
-      image: "/images/sessions/shipbuilding.jpg",
-      description: t(
-        "India's strategic interest in Korean LNG carrier construction excellence. Building on the MAGA partnership signed in 2024, exploring expanded cooperation in shipbuilding and maritime logistics.",
-        "한국의 LNG 운반선 건조 기술력에 대한 인도의 전략적 관심을 바탕으로, 2024년 체결된 MAGA 파트너십을 확대하고 조선·해양 물류 분야의 협력 강화를 모색합니다."
-      ),
-      companies: [
-        t("HD Hyundai", "HD현대"),
-        t("Samho (HD Group)", "삼호중공업 (HD 계열)"),
-      ],
-    },
-    {
-      id: "smartinfra",
+      id: "entertainment",
       number: "06",
-      title: t("Smart Infrastructure", "스마트 인프라"),
-      subtitle: t("Construction & Development", "건설 & 개발"),
-      icon: "🏗️",
+      title: t("Entertainment", "엔터테인먼트"),
+      subtitle: t("K-Culture & OTT", "K-Culture & OTT"),
+      icon: "🎬",
       color: "#EF4444",
-      image: "/images/sessions/smartinfra.jpg",
       description: t(
-        "Participating in India's ambitious economic development plans through smart infrastructure construction. Leveraging Korea's advanced construction technology for India's next-generation urban development projects.",
-        "인도의 대규모 경제 개발 계획에 한국의 첨단 건설 기술로 참여합니다. 차세대 스마트시티, 교통 인프라, 산업단지 개발 등 인도 국가 인프라 프로젝트 협력 방안을 논의합니다."
+        "ZEE TV 'K-Culture & Tech' broadcast channel launch and global OTT collaboration. WION global news live sessions, MVP interview programs, and content co-production models with Korea's entertainment industry.",
+        "ZEE TV 전용 'K-Culture & Tech' 방송 채널 개설 및 글로벌 OTT 협력. WION 글로벌 뉴스 라이브 세션, MVP 인터뷰 프로그램, 한국 엔터 산업과의 콘텐츠 공동 제작 모델을 논의합니다."
       ),
       companies: [
-        t("Hyundai E&C", "현대건설"),
-        t("Samsung C&T", "삼성물산"),
+        "ZEE TV",
+        "CJ ENM",
+        "HYBE",
       ],
     },
     {
-      id: "rehab",
+      id: "veterans-rehabilitation",
       number: "07",
-      title: t("Veterans & Rehabilitation", "보훈·재활"),
-      subtitle: t("Appropriate Medical Tech & Prosthetics", "적정의료기술 & 의족·휠체어"),
-      icon: "🤝",
-      color: "#EC4899",
-      image: "/images/sessions/rehab.jpg",
+      title: t("AX for War Veterans & the Physically Challenged", "참전용사 & 장애인 재활"),
+      subtitle: t("Appropriate Medical Tech & Prosthetics", "적정 의료기술 & 보조기기"),
+      icon: "🦾",
+      color: "#7C3AED",
       description: t(
-        "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. Establishing a joint Korea-India R&D center for 3D-printed custom prosthetics and wheelchairs, training disabled professionals in appropriate medical technology, and providing free prosthetics to amputees, refugees, and the impoverished worldwide.",
-        "KOICA 한-인도 재활협력 프로그램 기반의 세션입니다. 자이푸르 풋 재단의 적정기술과 한국의 3D 프린팅·ICT 기술을 융합하여, 인도에 한·인도 공동 R&D 센터를 설립하고 맞춤형 의족·휠체어를 생산합니다. 전 세계 절단장애인, 난민, 최빈민층에게 무상 보급하는 글로벌 메디컬 서비스를 논의합니다."
+        "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. 3D-printed custom prosthetics and wheelchairs, training disabled professionals, and providing free prosthetics worldwide.",
+        "KOICA의 자이푸르 풋 재단 파트너십 기반 한-인도 재활 협력. 3D 프린팅 맞춤형 의족·휠체어 제공, 장애인 전문인력 양성, 전 세계 무상 보조기기 보급. 전쟁 참전 용사들과 장애인들을 위한 재활, 예술 활동 장려 및 지원."
       ),
       companies: [
         "KOICA",
-        t("Jaipur Foot Foundation", "자이푸르 풋 재단"),
+        "Jaipur Foot Foundation",
         t("Ministry of Patriots & Veterans", "국가보훈부"),
       ],
     },
@@ -134,38 +129,48 @@ export default function Program() {
   const schedule = [
     {
       day: t("Day 1", "1일차"),
-      date: t("April 27 (Mon)", "4월 27일 (월)"),
-      title: t("Future Tech Exhibition & Welcome", "미래기술 전시회 & 환영 행사"),
+      date: t("April 21 (Mon)", "4월 21일 (월)"),
+      title: t("Vision Sharing & VIP Networking", "비전 공유 & 고위급 네트워킹"),
       events: [
-        { time: "09:00 - 18:00", name: t("Future Tech Exhibition", "미래기술 전시회"), desc: t("AI × Bio Immersive Exhibition (Viscode)", "AI × 바이오 몰입형 전시 (Viscode)") },
-        { time: "10:00 - 12:00", name: t("Opening Ceremony", "개회식"), desc: t("VIP Welcome & Keynote Addresses", "VIP 환영사 & 기조 연설") },
-        { time: "14:00 - 17:00", name: t("B2B Business Matching", "B2B 비즈니스 매칭"), desc: t("Pre-arranged bilateral meetings", "사전 매칭된 양자 미팅") },
-        { time: "19:00 - 21:00", name: t("State Gala Dinner", "공식 만찬"), desc: t("Hosted by Government Dignitaries", "양국 정부 인사 주최") },
+        { time: "09:00 - 10:30", name: t("Opening Ceremony & Keynotes", "개막식 및 기조연설"), desc: t("Heads of state & vice-premier keynote addresses — Main Auditorium", "양국 정상/부총리 기조연설 — 메인 오디토리움") },
+        { time: "10:30 - 12:00", name: t("Session I & II Joint Forum", "세션 I·II 통합 토론"), desc: t("AI+Semiconductor & Defense joint discussion", "AI+반도체 & 방산 통합 세션") },
+        { time: "12:00 - 13:30", name: t("Ministerial Luncheon", "장관급 동석 오찬"), desc: t("\"Future of Indian Industry\" — Grand Ballroom", "\"인도 산업의 미래\" — 그랜드 볼룸") },
+        { time: "14:00 - 17:30", name: t("Tech Conference & B2B Matching", "기술 컨퍼런스 & B2B 매칭"), desc: t("Industry-specific sessions — Exhibition Halls", "산업별 세션 — 전시 홀") },
+        { time: "18:30 - 21:00", name: t("Yashobhoomi Night (VIP Dinner)", "야쇼부미 나이트 (VIP 만찬)"), desc: t("Session Chair exclusive dinner — Grand Ballroom", "좌장 기업 전용 만찬 — 그랜드 볼룸") },
       ],
     },
     {
       day: t("Day 2", "2일차"),
-      date: t("April 28 (Tue)", "4월 28일 (화)"),
-      title: t("Strategic Forum Sessions", "전략 포럼 세션"),
+      date: t("April 22 (Tue)", "4월 22일 (화)"),
+      title: t("Working Sessions & Policy Proposals", "실무 세션 & 정책 건의"),
       events: [
-        { time: "09:00 - 10:30", name: t("Session 01: AIX", "세션 01: AIX (AI 전환)"), desc: t("AI, Big Data, Cloud & Hindi LLM", "AI, 빅데이터, 클라우드 & 힌디어 LLM") },
-        { time: "11:00 - 12:30", name: t("Session 02: Chemical", "세션 02: 케미컬"), desc: t("Petrochemical Alliance vs China", "석유화학 동맹 — 중국 대항 전략") },
-        { time: "14:00 - 15:30", name: t("Session 03: Bio-Healthcare", "세션 03: 바이오헬스케어"), desc: t("AI × Ayurveda & Viscode Exhibition", "AI × 아유르베다 & Viscode 전시") },
-        { time: "16:00 - 17:30", name: t("Session 04: Energy & BESS", "세션 04: 에너지 & BESS"), desc: t("Hydrogen, Solid-State Battery & Storage", "수소, 전고체 배터리 & 에너지 저장") },
+        { time: "09:00 - 11:00", name: t("Session III & IV Breakout", "세션 III·IV 분과 회의"), desc: t("Mobility & Energy — Conference Rooms 1, 2", "모빌리티 & 에너지 — 컨퍼런스룸 1, 2") },
+        { time: "11:00 - 13:00", name: t("Session V, VI, VII Breakout", "세션 V·VI·VII 분과 회의"), desc: t("Chemical, Entertainment, Bio-medical — Conference Rooms 3-5", "케미컬, 엔터, 바이오 — 컨퍼런스룸 3-5") },
+        { time: "13:00 - 14:30", name: t("Korea-India CEO Roundtable", "한-인도 CEO 라운드테이블"), desc: t("A-Tier and above — VIP Lounge", "A등급 이상 — VIP 라운지") },
+        { time: "15:00 - 17:00", name: t("G2B Closed-door Meeting", "G2B 비공개 회의"), desc: t("Policy proposals & regulatory consultations", "규제 개선 건의서 전달") },
+        { time: "17:00 - 18:30", name: t("LOI & MOU Signing Ceremony", "LOI/MOU 합동 서명식"), desc: t("Investment agreements — Grand Foyer", "투자 합의 — 그랜드 포이어") },
       ],
     },
     {
       day: t("Day 3", "3일차"),
-      date: t("April 29 (Wed)", "4월 29일 (수)"),
-      title: t("Industry Forums & Closing", "산업 포럼 & 폐회"),
+      date: t("April 23 (Wed)", "4월 23일 (수)"),
+      title: t("Site Visits & Follow-up", "현장 방문 & 후속 계획"),
       events: [
-        { time: "09:00 - 10:30", name: t("Session 05: Shipbuilding", "세션 05: 조선"), desc: t("LNG Carriers & MAGA Partnership", "LNG 운반선 & MAGA 파트너십") },
-        { time: "11:00 - 12:30", name: t("Session 06: Smart Infra", "세션 06: 스마트 인프라"), desc: t("Construction & Urban Development", "건설 & 도시 개발") },
-        { time: "13:30 - 15:00", name: t("Session 07: Veterans & Rehab", "세션 07: 보훈·재활"), desc: t("KOICA × Jaipur Foot: 3D Prosthetics & Global Medical Service", "KOICA × 자이푸르 풋: 3D 의족·휠체어 & 글로벌 메디컬") },
-        { time: "15:30 - 17:00", name: t("MOU Signing Ceremony", "MOU 체결식"), desc: t("Partnership Agreements", "분야별 파트너십 협약 체결") },
-        { time: "16:00 - 17:00", name: t("Closing Ceremony", "폐회식"), desc: t("Summary & Future Roadmap", "성과 요약 & 향후 로드맵 발표") },
+        { time: t("AM", "오전"), name: t("Industry Cluster Visit", "산업 클러스터 시찰"), desc: t("Noida Samsung Factory, Greater Noida Medical Device Park", "노이다 삼성공장, 그레이터 노이다 의료기기 공원") },
+        { time: t("PM", "오후"), name: t("Press Conference & Next Summit Announcement", "성과 발표 & 차기 써밋 선포"), desc: t("Summit outcomes report & Seoul 2027 announcement", "써밋 성과 발표 + 차기 서울 개최 공식 선포") },
       ],
     },
+  ];
+
+  // 특별세션 (SS) 목록
+  const specialSessions = [
+    { code: "SS-1", name: t("Co-branded Semiconductor Launch Project", "인도 설계-한국 제조 공동 브랜드 반도체 런칭"), people: "50" },
+    { code: "SS-2", name: t("AI Drug Discovery Joint Data Bank", "AI 기반 신약 후보 물질 발굴 공동 데이터뱅크"), people: "100" },
+    { code: "SS-3", name: t("Metaverse Smart City Simulation", "메타버스 인도 신도시 사전 시뮬레이션"), people: "100" },
+    { code: "SS-4", name: t("K-Defense MRO Digital Transformation", "K-방산 MRO 센터 디지털 전환"), people: "50" },
+    { code: "SS-5", name: t("ZEE TV 'K-Culture & Tech' Channel", "ZEE TV 'K-Culture & Tech' 방송 채널"), people: "50" },
+    { code: "SS-6", name: t("Korea-India H2 Mobility Zone", "한-인도 수소 모빌리티 실증 구역"), people: "200" },
+    { code: "SS-7", name: t("Business Law Support Center Launch", "한-인도 비즈니스 법률 지원 센터 발족"), people: "200" },
   ];
 
   return (
@@ -174,7 +179,7 @@ export default function Program() {
         <ScrollReveal>
           <h2 className="section-title">{t("Program", "프로그램")}</h2>
           <div className="section-divider" />
-          <p className="section-subtitle">{t("3 days of exhibitions, strategic forums, and high-level networking", "3일간의 전시회, 전략 포럼, 하이레벨 네트워킹")}</p>
+          <p className="section-subtitle">{t("3 days of exhibitions, strategic forums, and high-level networking with 5,000+ delegates", "5,000명 이상 참가, 3일간의 전시회, 전략 포럼, 하이레벨 네트워킹")}</p>
         </ScrollReveal>
 
         {/* 일정 개요 */}
@@ -201,7 +206,7 @@ export default function Program() {
           ))}
         </div>
 
-        {/* 6대 전략 세션 */}
+        {/* 7대 전략 세션 */}
         <div id="sessions" className="scroll-mt-24">
           <ScrollReveal>
             <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">{t("7 Strategic Sessions", "7대 전략 세션")}</h3>
@@ -210,25 +215,15 @@ export default function Program() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {sessions.map((session, idx) => (
               <ScrollReveal key={session.id} delay={idx * 100}>
-                <div className="card group cursor-pointer h-full overflow-hidden">
-                  <div className="relative h-44 overflow-hidden">
-                    <Image
-                      src={session.image}
-                      alt={session.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
-                      <div className="w-9 h-9 rounded-lg flex items-center justify-center text-base backdrop-blur-sm" style={{ backgroundColor: session.color + "30", color: "#fff" }}>{session.icon}</div>
+                <div className="card group cursor-pointer h-full">
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-lg flex items-center justify-center text-xl shrink-0" style={{ backgroundColor: session.color + "15", color: session.color }}>{session.icon}</div>
                       <div>
-                        <div className="text-[10px] font-bold text-white/70">{t("SESSION", "세션")} {session.number}</div>
-                        <div className="text-base font-bold text-white drop-shadow">{session.title}</div>
+                        <div className="text-xs font-bold text-[var(--gray-600)]">{t("SESSION", "세션")} {session.number}</div>
+                        <div className="text-lg font-bold text-[var(--navy)]">{session.title}</div>
                       </div>
                     </div>
-                  </div>
-                  <div className="p-5">
                     <div className="text-xs font-semibold text-[var(--gold)] mb-2">{session.subtitle}</div>
                     <p className="text-sm text-[var(--gray-600)] leading-relaxed mb-4">{session.description}</p>
                     <div className="flex flex-wrap gap-1.5">
@@ -237,6 +232,27 @@ export default function Program() {
                       ))}
                     </div>
                   </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+
+        {/* 특별세션 */}
+        <div className="mt-16">
+          <ScrollReveal>
+            <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">{t("Special Sessions", "특별세션")}</h3>
+            <p className="text-center text-[var(--gray-600)] mb-8">{t("In-depth sessions on strategic bilateral projects", "전략적 양자 프로젝트 심층 세션")}</p>
+          </ScrollReveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {specialSessions.map((ss, idx) => (
+              <ScrollReveal key={ss.code} delay={idx * 80}>
+                <div className="bg-white rounded-xl p-5 border border-gray-100 hover:shadow-md transition-shadow">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-xs font-bold text-white bg-[var(--navy)] px-2 py-1 rounded">{ss.code}</span>
+                    <span className="text-[10px] text-[var(--gray-600)]">{ss.people}{t(" delegates", "명")}</span>
+                  </div>
+                  <p className="text-sm font-medium text-[var(--navy)]">{ss.name}</p>
                 </div>
               </ScrollReveal>
             ))}

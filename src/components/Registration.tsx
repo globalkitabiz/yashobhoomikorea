@@ -1,56 +1,68 @@
 "use client";
 
+import { useState } from "react";
 import { useLanguage } from "@/lib/i18n";
-import { Check, CreditCard, Building, FileText } from "lucide-react";
+import { Check, CreditCard, Building, FileText, ChevronDown } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
 
 export default function Registration() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+  const [openTier, setOpenTier] = useState<number | null>(null);
 
-  const fees = [
-    { type: t("General Participant", "일반 참가자"), early: "USD 500", regular: "USD 700", onsite: "USD 900" },
-    { type: t("Corporate Delegate", "기업 대표단"), early: "USD 800", regular: "USD 1,000", onsite: "USD 1,200" },
-    { type: t("VIP / Speaker", "VIP / 연사"), early: t("Invited", "초청"), regular: t("Invited", "초청"), onsite: t("Invited", "초청") },
-    { type: t("Government / Public", "정부 / 공공기관"), early: "USD 300", regular: "USD 500", onsite: "USD 600" },
-    { type: t("Student / Academic", "학생 / 학술"), early: "USD 200", regular: "USD 300", onsite: "USD 400" },
-    { type: t("Exhibition Booth", "전시 부스"), early: "USD 3,000", regular: "USD 4,000", onsite: "USD 5,000" },
-  ];
-
-  const sponsorships = [
-    { tier: "S", name: t("Title Sponsor", "타이틀 스폰서"), price: "USD 100,000", color: "from-amber-500 to-yellow-600",
+  const tiers = [
+    {
+      tier: t("Session Chair", "세션 의장"),
+      price: "$1,000,000",
+      color: "from-amber-500 to-yellow-600",
+      borderColor: "border-amber-400",
       benefits: [
-        t("Logo on all materials & main stage", "모든 자료 및 메인 무대 로고 노출"),
-        t("Opening keynote slot (10 min)", "개회 기조 연설 (10분)"),
-        t("20 VIP invitations", "VIP 초청 20명"),
-        t("Premium booth (6×6m)", "프리미엄 부스 (6×6m)"),
-        t("Exclusive media coverage", "독점 미디어 보도"),
-      ] },
-    { tier: "A", name: t("Diamond", "다이아몬드"), price: "USD 50,000", color: "from-purple-500 to-violet-600",
+        t("Head table seating with vice-minister-level officials from India & Korea", "인도·한국 소속 장차관급 관료와 헤드 테이블 배정"),
+        t("Agenda-setting authority for the relevant industry session", "해당 산업 세션 의제 설정권"),
+        t("Exclusive G2B/B2G closed-door meeting organization", "독점 G2B/B2G 비공개 회의 주관"),
+        t("Priority #1 policy recommendation in the official summit white paper", "써밋 공식 백서 내 정책 제언 1순위 반영"),
+      ],
+    },
+    {
+      tier: t("A-Tier · Strategic Follower", "A등급 · Strategic Follower"),
+      price: "$500,000",
+      color: "from-purple-500 to-violet-600",
+      borderColor: "border-purple-400",
       benefits: [
-        t("Logo on main banners", "메인 배너 로고 노출"),
-        t("Panel session slot", "패널 세션 참여"),
-        t("10 VIP invitations", "VIP 초청 10명"),
-        t("Premium booth (4×4m)", "프리미엄 부스 (4×4m)"),
-        t("Media coverage", "미디어 보도"),
-      ] },
-    { tier: "B", name: t("Gold", "골드"), price: "USD 30,000", color: "from-[var(--gold)] to-[var(--gold-dark)]",
+        t("Full-time access to vice-minister networking lounge", "장차관 네트워킹 라운지 상시 출입권"),
+        t("Key panelist participation in each session", "세션별 핵심 토론자 참여"),
+        t("Priority 1:1 investment matching with Indian conglomerate CEOs", "인도 대기업 CEO와의 1:1 투자 매칭 우선권"),
+        t("Opportunity to submit regulatory improvement proposals", "규제 개선 건의안 제출 기회 제공"),
+      ],
+    },
+    {
+      tier: t("B-Tier · Business Partner", "B등급 · Business Partner"),
+      price: "$300,000",
+      color: "from-[var(--gold)] to-[var(--gold-dark)]",
+      borderColor: "border-[var(--gold)]",
       benefits: [
-        t("Logo on program book", "프로그램북 로고 노출"),
-        t("5 delegate invitations", "대표단 초청 5명"),
-        t("Standard booth (3×3m)", "일반 부스 (3×3m)"),
-        t("B2B matching priority", "B2B 매칭 우선권"),
-      ] },
-    { tier: "C", name: t("Silver", "실버"), price: "USD 10,000", color: "from-gray-400 to-gray-500",
+        t("Official B2B matching program participation", "공식 B2B 매칭 프로그램 참여"),
+        t("Technical seminar with director-general-level officials from both nations", "양국 주요 실무 국장급과의 기술 세미나 참석"),
+        t("VIP booth allocation at IICC exhibition hall", "IICC 전시장 내 VIP 부스 배정"),
+        t("Corporate IR video on summit main screen at all times", "기업 IR 영상 써밋 메인 스크린 상시 노출"),
+      ],
+    },
+    {
+      tier: t("C-Tier · Growth Member", "C등급 · Growth Member"),
+      price: "$100,000",
+      color: "from-gray-400 to-gray-500",
+      borderColor: "border-gray-400",
       benefits: [
-        t("Logo on partner wall", "파트너 월 로고 노출"),
-        t("3 delegate invitations", "대표단 초청 3명"),
-        t("B2B matching access", "B2B 매칭 참여"),
-      ] },
+        t("Session attendance and networking event participation", "세션 참관 및 네트워킹 이벤트 참여"),
+        t("India local industry cluster visit opportunity", "인도 현지 산업 클러스터 방문 기회"),
+        t("Listed in summit participating companies directory", "써밋 참여 기업 명부 등재"),
+        t("Consulting support for India government PLI scheme application", "향후 인도 정부 지원 PLI 신청 시 컨설팅 지원"),
+      ],
+    },
   ];
 
   const steps = [
     { icon: FileText, step: t("STEP 1", "1단계"), title: t("Online Registration", "온라인 등록"),
-      desc: t("Fill out the pre-registration form with your details and select your participation type.", "사전등록 양식을 작성하고 참가 유형을 선택하세요.") },
+      desc: t("Fill out the pre-registration form with your details and select your participation tier.", "사전등록 양식을 작성하고 참여 등급을 선택하세요.") },
     { icon: CreditCard, step: t("STEP 2", "2단계"), title: t("Payment", "결제"),
       desc: t("Complete payment via credit card (Visa/MC/AMEX), bank transfer, or PayPal.", "신용카드(Visa/MC/AMEX), 계좌이체, 또는 PayPal로 결제를 완료하세요.") },
     { icon: Check, step: t("STEP 3", "3단계"), title: t("Confirmation", "확인"),
@@ -66,34 +78,53 @@ export default function Registration() {
           <p className="section-subtitle">{t("Secure your place at the premier India-Korea business summit", "인도-한국 프리미어 비즈니스 서밋에 자리를 확보하세요")}</p>
         </ScrollReveal>
 
-        {/* 참가비 테이블 */}
+        {/* 참여 등급 */}
         <ScrollReveal delay={100}>
           <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-12">
             <div className="bg-[var(--navy)] text-white p-6">
-              <h3 className="text-xl font-bold">{t("Registration Fees", "참가비 안내")}</h3>
-              <p className="text-white/60 text-sm mt-1">{t("All fees in USD. Includes summit access, materials, and meals.", "모든 참가비는 USD 기준. 서밋 참가, 자료, 식사 포함.")}</p>
+              <h3 className="text-xl font-bold">{t("Participation Tiers & Benefits", "참여 등급 및 혜택")}</h3>
+              <p className="text-white/60 text-sm mt-1">{t("Click each tier to view participation fee", "각 등급을 클릭하면 참가비를 확인할 수 있습니다")}</p>
             </div>
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="bg-[var(--gray-50)]">
-                    <th className="text-left p-4 text-sm font-semibold text-[var(--navy)]">{t("Type", "유형")}</th>
-                    <th className="text-center p-4 text-sm font-semibold text-green-600">{t("Early Bird", "조기등록")}<br /><span className="text-xs font-normal text-[var(--gray-600)]">~ Mar 15</span></th>
-                    <th className="text-center p-4 text-sm font-semibold text-[var(--gold)]">{t("Regular", "일반등록")}<br /><span className="text-xs font-normal text-[var(--gray-600)]">~ Apr 15</span></th>
-                    <th className="text-center p-4 text-sm font-semibold text-red-500">{t("On-site", "현장등록")}<br /><span className="text-xs font-normal text-[var(--gray-600)]">Apr 27~</span></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {fees.map((fee) => (
-                    <tr key={fee.type} className="border-t border-gray-100 hover:bg-[var(--gold)]/5 transition-colors">
-                      <td className="p-4 text-sm font-semibold text-[var(--navy)]">{fee.type}</td>
-                      <td className="text-center p-4 text-sm font-medium text-green-600">{fee.early}</td>
-                      <td className="text-center p-4 text-sm font-medium">{fee.regular}</td>
-                      <td className="text-center p-4 text-sm font-medium text-red-500">{fee.onsite}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="divide-y divide-gray-100">
+              {tiers.map((item, idx) => {
+                const isOpen = openTier === idx;
+                return (
+                  <div key={idx}>
+                    <button
+                      onClick={() => setOpenTier(isOpen ? null : idx)}
+                      className="w-full text-left p-5 md:p-6 hover:bg-[var(--gold)]/5 transition-colors flex items-center gap-4"
+                    >
+                      <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center text-white font-black text-lg shrink-0`}>
+                        {idx === 0 ? "S" : String.fromCharCode(65 + idx - 1)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-base font-bold text-[var(--navy)]">{item.tier}</div>
+                        <div className="text-sm text-[var(--gray-600)] mt-1 line-clamp-1">{item.benefits[0]}</div>
+                      </div>
+                      <ChevronDown className={`w-5 h-5 text-[var(--gray-600)] shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} />
+                    </button>
+                    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+                      <div className={`px-5 md:px-6 pb-6 border-l-4 ${item.borderColor} ml-5 md:ml-6`}>
+                        <div className="mb-4">
+                          <span className="text-xs font-semibold text-[var(--gray-600)] uppercase tracking-wider">{t("Participation Fee", "참가비")}</span>
+                          <div className="text-2xl font-bold text-[var(--navy)] mt-1">{item.price} <span className="text-sm font-normal text-[var(--gray-600)]">USD</span></div>
+                        </div>
+                        <div className="text-xs font-semibold text-[var(--gray-600)] uppercase tracking-wider mb-2">{t("Key Benefits", "주요 혜택")}</div>
+                        <ul className="space-y-2">
+                          {item.benefits.map((b) => (
+                            <li key={b} className="flex items-start gap-2 text-sm text-[var(--gray-600)]">
+                              <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />{b}
+                            </li>
+                          ))}
+                        </ul>
+                        <a href="#contact" className="inline-block mt-4 text-sm font-semibold text-[var(--gold)] hover:text-[var(--gold-dark)] transition-colors">
+                          {t("Inquire about this tier →", "이 등급 문의하기 →")}
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </ScrollReveal>
@@ -116,46 +147,13 @@ export default function Registration() {
 
         {/* 결제 수단 */}
         <ScrollReveal>
-          <div className="bg-white rounded-xl p-6 mb-12 flex flex-wrap items-center justify-center gap-6">
+          <div className="bg-white rounded-xl p-6 flex flex-wrap items-center justify-center gap-6">
             <span className="text-sm font-semibold text-[var(--navy)]">{t("Accepted Payment:", "결제 수단:")}</span>
             <div className="flex items-center gap-2"><Building className="w-4 h-4 text-[var(--gray-600)]" /><span className="text-sm text-[var(--gray-600)]">{t("Bank Transfer (KRW / INR / USD)", "계좌이체 (KRW / INR / USD)")}</span></div>
             <div className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-[var(--gray-600)]" /><span className="text-sm text-[var(--gray-600)]">Visa / MasterCard / AMEX</span></div>
             <span className="text-sm text-[var(--gray-600)]">PayPal</span>
           </div>
         </ScrollReveal>
-
-        {/* 스폰서십 */}
-        <div id="sponsorship" className="mt-20 scroll-mt-24">
-          <ScrollReveal>
-            <h3 className="text-2xl font-bold text-[var(--navy)] text-center mb-3">{t("Sponsorship Packages", "후원 패키지")}</h3>
-            <p className="text-center text-[var(--gray-600)] mb-10">{t("Partner with us and gain unparalleled visibility at the summit", "서밋에서 비할 데 없는 가시성을 확보하세요")}</p>
-          </ScrollReveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sponsorships.map((pkg, idx) => (
-              <ScrollReveal key={pkg.tier} delay={idx * 100}>
-                <div className="card h-full flex flex-col">
-                  <div className={`bg-gradient-to-r ${pkg.color} p-4 text-white text-center`}>
-                    <div className="text-3xl font-black">{pkg.tier}</div>
-                    <div className="text-sm font-bold">{pkg.name}</div>
-                    <div className="text-lg font-bold mt-1">{pkg.price}</div>
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col">
-                    <ul className="space-y-2 flex-1">
-                      {pkg.benefits.map((b) => (
-                        <li key={b} className="flex items-start gap-2 text-sm text-[var(--gray-600)]">
-                          <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />{b}
-                        </li>
-                      ))}
-                    </ul>
-                    <a href="#contact" className="block mt-4 text-center text-sm font-semibold text-[var(--gold)] hover:text-[var(--gold-dark)] transition-colors">
-                      {t("Inquire →", "문의하기 →")}
-                    </a>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
