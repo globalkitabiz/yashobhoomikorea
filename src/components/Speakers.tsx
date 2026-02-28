@@ -10,10 +10,10 @@ export default function Speakers() {
 
   const speakers = [
     { name: "Narendra Modi", title: t("Prime Minister", "총리"), org: t("Government of India", "인도 정부"), image: "/images/speakers/modi.jpg" },
-    { name: "Om Birla", title: t("Speaker of Lok Sabha", "인도 국회의장"), org: t("Parliament of India", "인도 국회"), image: "" },
-    { name: t("Woo Won-shik", "우원식"), title: t("Speaker of National Assembly", "국회의장"), org: t("National Assembly, ROK", "대한민국 국회"), image: "" },
+    { name: "Om Birla", title: t("Speaker of Lok Sabha", "인도 국회의장"), org: t("Parliament of India", "인도 국회"), image: "/images/speakers/birla.jpg" },
+    { name: t("Woo Won-shik", "우원식"), title: t("Speaker of National Assembly", "국회의장"), org: t("National Assembly, ROK", "대한민국 국회"), image: "/images/speakers/woo.jpg" },
     { name: "Punit Goenka", title: "CEO", org: "ZEE Entertainment", image: "/images/speakers/goenka.jpg" },
-    { name: t("Chey Tae-won", "최태원"), title: t("Chairman", "회장"), org: "SK Group", image: "" },
+    { name: t("Chey Tae-won", "최태원"), title: t("Chairman", "회장"), org: "SK Group", image: "/images/speakers/chey.jpg" },
     { name: "TBA", title: t("To Be Announced", "미정"), org: t("Coming Soon", "추후 공개"), image: "" },
   ];
 
