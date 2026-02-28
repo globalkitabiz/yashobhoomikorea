@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useLanguage } from "@/lib/i18n";
 import ScrollReveal from "./ScrollReveal";
 
@@ -14,6 +15,7 @@ export default function Program() {
       subtitle: t("AI Chip & Fabrication", "AI 칩 & 제조"),
       icon: "🤖",
       color: "#6366F1",
+      image: "/images/sessions/aix.jpg",
       description: t(
         "Combining Korea's semiconductor manufacturing capabilities with India's software/design talent. Next-gen AI semiconductor ecosystem, edge AI architectures for autonomous vehicles, and HBM device research.",
         "한국의 반도체 제조 역량과 인도의 소프트웨어/설계 인력을 결합한 차세대 AI 반도체 생태계 구축. 자율주행 엣지 AI 아키텍처, HBM 소자 연구를 논의합니다."
@@ -31,6 +33,7 @@ export default function Program() {
       subtitle: t("K-Defense & MRO", "K-방산 & MRO"),
       icon: "🛡️",
       color: "#8B5CF6",
+      image: "/images/sessions/shipbuilding.jpg",
       description: t(
         "Digital transformation of K-Defense MRO centers in India. Algorithmic ethics in military AI, real-time big data analytics for ISR, and AI-powered unmanned combat systems (MUM-T) cooperation.",
         "인도 현지 K-방산 MRO 센터의 디지털 전환. 군사 AI 알고리즘 윤리, ISR용 실시간 빅데이터 분석, AI 기반 유무인 복합 전투 체계(MUM-T) 협력을 논의합니다."
@@ -47,6 +50,7 @@ export default function Program() {
       subtitle: t("AI Green Mobility", "AI 그린 모빌리티"),
       icon: "🚗",
       color: "#10B981",
+      image: "/images/sessions/smartinfra.jpg",
       description: t(
         "Hydrogen mobility demonstration zones at Yashobhoomi (IICC). Autonomous electric vehicle architectures, EV infrastructure integrated with smart grids, and lightweight materials science innovations.",
         "야쇼부미(IICC) 내 한-인도 수소 모빌리티 실증 구역 운영. 자율주행 전기차 아키텍처, 스마트 그리드 통합 EV 인프라, 경량화 재료과학 혁신을 논의합니다."
@@ -64,6 +68,7 @@ export default function Program() {
       subtitle: t("H2 & BESS", "수소 & BESS"),
       icon: "⚡",
       color: "#F59E0B",
+      image: "/images/sessions/energy.jpg",
       description: t(
         "India's carbon neutrality through Korea's hydrogen (H2) infrastructure and EV value chain. All-solid-state battery technology, carbon capture (CCUS), and high-efficiency energy storage systems.",
         "한국의 수소(H2) 인프라 및 전기차 밸류체인을 통한 인도의 탄소중립 목표 달성. 전고체 배터리 기술, 탄소 포집(CCUS), 고효율 에너지 저장 시스템을 논의합니다."
@@ -81,6 +86,7 @@ export default function Program() {
       subtitle: t("Petrochemical & Materials", "석유화학 & 소재"),
       icon: "🧪",
       color: "#3B82F6",
+      image: "/images/sessions/chemical.jpg",
       description: t(
         "Past, present, and future of the chemical industry. High-purity chemicals for semiconductor processes, next-gen battery electrolytes and separators, eco-friendly lightweight plastics, and India REACH compliance.",
         "케미컬 산업의 과거, 현재 그리고 미래. 반도체 공정용 고순도 케미컬, 차세대 전지용 전해질·분리막, 친환경 경량 플라스틱, 인도 REACH 대응을 논의합니다."
@@ -97,6 +103,7 @@ export default function Program() {
       subtitle: t("K-Culture & OTT", "K-Culture & OTT"),
       icon: "🎬",
       color: "#EF4444",
+      image: "/images/sessions/bio.jpg",
       description: t(
         "ZEE TV 'K-Culture & Tech' broadcast channel launch and global OTT collaboration. WION global news live sessions, MVP interview programs, and content co-production models with Korea's entertainment industry.",
         "ZEE TV 전용 'K-Culture & Tech' 방송 채널 개설 및 글로벌 OTT 협력. WION 글로벌 뉴스 라이브 세션, MVP 인터뷰 프로그램, 한국 엔터 산업과의 콘텐츠 공동 제작 모델을 논의합니다."
@@ -114,6 +121,7 @@ export default function Program() {
       subtitle: t("Appropriate Medical Tech & Prosthetics", "적정 의료기술 & 보조기기"),
       icon: "🦾",
       color: "#7C3AED",
+      image: "/images/sessions/rehab.jpg",
       description: t(
         "Korea-India rehabilitation cooperation based on KOICA's Jaipur Foot Foundation partnership. 3D-printed custom prosthetics and wheelchairs, training disabled professionals, and providing free prosthetics worldwide.",
         "KOICA의 자이푸르 풋 재단 파트너십 기반 한-인도 재활 협력. 3D 프린팅 맞춤형 의족·휠체어 제공, 장애인 전문인력 양성, 전 세계 무상 보조기기 보급. 전쟁 참전 용사들과 장애인들을 위한 재활, 예술 활동 장려 및 지원."
@@ -215,15 +223,30 @@ export default function Program() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {sessions.map((session, idx) => (
               <ScrollReveal key={session.id} delay={idx * 100}>
-                <div className="card group cursor-pointer h-full">
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg flex items-center justify-center text-xl shrink-0" style={{ backgroundColor: session.color + "15", color: session.color }}>{session.icon}</div>
+                <div className="card group cursor-pointer h-full overflow-hidden">
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={session.image}
+                      alt={session.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute bottom-3 left-4 flex items-center gap-2">
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center text-base backdrop-blur-sm"
+                        style={{ backgroundColor: session.color + "30", color: "#fff" }}
+                      >
+                        {session.icon}
+                      </div>
                       <div>
-                        <div className="text-xs font-bold text-[var(--gray-600)]">{t("SESSION", "세션")} {session.number}</div>
-                        <div className="text-lg font-bold text-[var(--navy)]">{session.title}</div>
+                        <div className="text-[10px] font-bold text-white/70">{t("SESSION", "세션")} {session.number}</div>
+                        <div className="text-base font-bold text-white drop-shadow">{session.title}</div>
                       </div>
                     </div>
+                  </div>
+                  <div className="p-5">
                     <div className="text-xs font-semibold text-[var(--gold)] mb-2">{session.subtitle}</div>
                     <p className="text-sm text-[var(--gray-600)] leading-relaxed mb-4">{session.description}</p>
                     <div className="flex flex-wrap gap-1.5">
